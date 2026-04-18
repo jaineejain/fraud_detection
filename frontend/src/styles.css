@@ -1,0 +1,189 @@
+:root {
+  --bg-0: #0c1424;
+  --bg-1: #141f36;
+  --bg-2: #1c2942;
+  --text-main: #eff5ff;
+  --text-muted: #9fb4d1;
+  --accent: #f4c430;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.12), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(244, 196, 48, 0.12), transparent 40%),
+    linear-gradient(160deg, var(--bg-0), var(--bg-1) 55%, var(--bg-2));
+  color: var(--text-main);
+}
+
+body:not(.theme-dark) {
+  --bg-0: #f4f8ff;
+  --bg-1: #eaf1fb;
+  --bg-2: #dbe9fb;
+  --text-main: #101828;
+  --text-muted: #475467;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  background: rgba(3, 10, 24, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+body:not(.theme-dark) .topbar {
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+}
+
+.brand-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-card,
+.panel-card,
+.metric-card,
+.result-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 36px rgba(1, 10, 24, 0.22);
+}
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 196, 48, 0.25), transparent 70%);
+}
+
+body:not(.theme-dark) .hero-card,
+body:not(.theme-dark) .panel-card,
+body:not(.theme-dark) .metric-card,
+body:not(.theme-dark) .result-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(16, 24, 40, 0.1);
+}
+
+.form-control,
+.form-select {
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+body.theme-dark .form-control,
+body.theme-dark .form-select {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+body.theme-dark .form-select {
+  color-scheme: dark;
+}
+
+/* Native select menus need explicit option colors for readable contrast. */
+body.theme-dark .form-select option,
+body.theme-dark .form-select optgroup {
+  background-color: #ffffff;
+  color: #101828;
+}
+
+body.theme-dark .form-select option:checked {
+  background-color: #2a6ecc;
+  color: #ffffff;
+}
+
+body.theme-dark .form-control:focus,
+body.theme-dark .form-select:focus {
+  color: var(--text-main);
+}
+
+.text-secondary {
+  color: var(--text-muted) !important;
+}
+
+.chart-wrap {
+  display: grid;
+  grid-template-columns: 90px 1fr 60px;
+  gap: 10px;
+  align-items: center;
+}
+
+.chart-track {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.chart-fill {
+  height: 100%;
+}
+
+.nav-link {
+  color: var(--text-main);
+  border-radius: 999px !important;
+  padding: 0.45rem 0.95rem;
+  font-weight: 600;
+}
+
+.nav-link.active {
+  background-color: var(--accent) !important;
+  color: #101828 !important;
+}
+
+.btn {
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.btn-warning {
+  box-shadow: 0 8px 20px rgba(244, 196, 48, 0.28);
+}
+
+.panel-card,
+.hero-card,
+.metric-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.panel-card:hover,
+.hero-card:hover,
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 36px rgba(1, 10, 24, 0.3);
+}
+
+.table {
+  --bs-table-bg: transparent;
+}
+
+@media (max-width: 768px) {
+  .topbar .container {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.75rem;
+  }
+}
